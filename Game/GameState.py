@@ -22,7 +22,7 @@ class GameState:
 
     def __str__(self):
         """Return a string representation of the game state"""
-        s = "Player position: " + str(self.get_player_position())
-        s += "Velocity: " + str(self.velocity)
+        s = "Position: " + str(self.get_player_position()) + "\n"
+        s += "Velocity: " + str(self.velocity) + "\n"
         s += self.track.print_track(self.player_position_row, self.player_position_column)
         return s

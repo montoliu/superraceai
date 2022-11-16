@@ -1,5 +1,5 @@
 class Track:
-    def __int__(self):
+    def __init__(self):
         self.track = [[0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
                       [0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
                       [0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
@@ -27,5 +27,6 @@ class Track:
                     s += " "
                 else:
                     s += "#"
+            s += "\n"
         return s
 
