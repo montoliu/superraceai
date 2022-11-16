@@ -26,3 +26,16 @@ class GameState:
         s += "Velocity: " + str(self.velocity) + "\n"
         s += self.track.print_track(self.player_position_row, self.player_position_column)
         return s
+
+    def is_terminal(self):
+        """Return True if the game is over"""
+        return self.reached_goal() or self.crashed()
+
+    def reached_goal(self):
+        """Return True if the player reached the goal"""
+        return self.track.is_goal(self.player_position_row, self.player_position_column)
+
+    def crashed(self):
+        """Return True if the player crashed"""
+        return self.track.is_crashed(self.player_position_row, self.player_position_column)
+

@@ -17,7 +17,12 @@ class Track:
         """Return True if the given position is the goal position"""
         return row == 0 and column in [2, 3, 4, 5]
 
+    def is_crashed(self, row, column):
+        """Return True if the player is crashed"""
+        return self.track[row][column] == 0
+
     def print_track(self, row, column):
+        """Return a string representation of the track"""
         s = ""
         for r in range(self.number_of_rows):
             for c in range(self.number_of_columns):
