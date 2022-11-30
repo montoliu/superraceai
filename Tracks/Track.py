@@ -1,9 +1,12 @@
+import math
+
+
 class Track:
     def __init__(self):
-        self.track = [[0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
-                      [0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
+        self.track = [[0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+                      [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
                       [0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
-                      [0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+                      [0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
                       [0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
                       [0, 0, 1, 1, 1, 1, 1, 0, 0, 0]]
         self.number_of_rows = len(self.track)
@@ -35,3 +38,27 @@ class Track:
             s += "\n"
         return s
 
+    def get_goals(self):
+        return [[0, 2], [0, 3], [0, 4], [0, 5], [0, 6]]
+
+    def get_distance_to_goal(self, row, column):
+        l_goals = self.get_goals()
+        best_distance = math.inf
+        for goal in l_goals:
+            distance = math.sqrt((row - goal[0])**2 + (column - goal[1])**2)  # euclidean distance
+            if distance < best_distance:
+                best_distance = distance
+        return best_distance
+
+    def clone(self):
+        clone = Track()
+        for row in range(self.number_of_rows):
+            for col in range(self.number_of_columns):
+                clone.set_cell(row, col, self.get_cell(row, col))
+        return clone
+
+    def set_cell(self, row, col, value):
+        self.track[row][col] = value
+
+    def get_cell(self, row, col):
+        return self.track[row][col]

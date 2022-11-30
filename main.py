@@ -11,7 +11,7 @@ if __name__ == '__main__':
     game = Game()
     player = Player()
     track = Track()
-    n_iter = 100
+    n_iter = 1
     wins = 0
 
     for i in range(n_iter):

@@ -59,3 +59,13 @@ class GameState:
         if self.velocity < 1:
             self.velocity = 1
 
+    def get_distance_to_goal(self):
+        return self.track.get_distance_to_goal(self.player_position_row, self.player_position_column)
+
+    def clone(self):
+        clone = GameState()
+        clone.track = self.track.clone()
+        clone.player_position_row = self.player_position_row
+        clone.player_position_column = self.player_position_column
+        clone.velocity = self.velocity
+        return clone
