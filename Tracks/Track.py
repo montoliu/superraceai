@@ -15,7 +15,7 @@ class Track:
 
     def is_goal(self, row, column):
         """Return True if the given position is the goal position"""
-        return row == 0 and column in [2, 3, 4, 5]
+        return row <= 0 and column in [2, 3, 4, 5]
 
     def is_crashed(self, row, column):
         """Return True if the player is crashed"""

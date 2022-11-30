@@ -24,5 +24,7 @@ class Game:
 
         if self.game_state.reached_goal():
             print("You won!")
+            return 1
         else:
             print("You lost!")
+            return 0
