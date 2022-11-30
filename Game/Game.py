@@ -18,6 +18,7 @@ class Game:
             action = player.think(self.game_state)             # Player thinks the action to play given the game state
             if action is None:
                 break
+            print("Player selected: " + str(action) + "\n")
             self.forward_model.play(self.game_state, action)   # ForwardModel plays the action and update the game_state
             score = self.heuristic.get_score(self.game_state)  # Heuristic calculates score
 

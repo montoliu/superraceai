@@ -1,10 +1,14 @@
-from Game.Action import Action
+import random
 
 
 class Player:
     def __init__(self):
-        print("Player is initialized")
+        pass
 
     def think(self, game_state):
-        print("Player is thinking")
-        return Action()
+        l_actions = game_state.get_actions()
+        if len(l_actions) == 0:
+            return None
+
+        return random.choice(l_actions)
+

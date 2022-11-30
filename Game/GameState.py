@@ -1,3 +1,6 @@
+from Game.Action import Action
+
+
 class GameState:
     def __init__(self):
         self.track = None
@@ -38,4 +41,21 @@ class GameState:
     def crashed(self):
         """Return True if the player crashed"""
         return self.track.is_crashed(self.player_position_row, self.player_position_column)
+
+    def get_actions(self):
+        """Return a list of actions that can be played"""
+        l_actions = [Action(0), Action(1), Action(2)]
+        return l_actions
+
+    def increase_velocity(self):
+        """Increase the velocity of the player"""
+        self.velocity += 1
+        if self.velocity > 3:
+            self.velocity = 3
+
+    def decrease_velocity(self):
+        """Decrease the velocity of the player"""
+        self.velocity -= 1
+        if self.velocity < 1:
+            self.velocity = 1
 
